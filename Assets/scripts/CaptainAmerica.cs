@@ -3,7 +3,9 @@ using UnityEngine;
 public class CaptainAmerica : SuperHero
 {
     public CaptainAmerica(string name, int hp, string suitColor, float armorStrength)
-        : base(name, hp, suitColor, armorStrength) { }
+        : base(name, hp, suitColor, armorStrength) 
+    {
+    }
 
     public void LeapAndJump()
     {

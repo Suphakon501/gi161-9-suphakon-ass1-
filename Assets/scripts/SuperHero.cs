@@ -14,7 +14,7 @@ public class SuperHero
         this.armorStrength = armorStrength;
     }
 
-    public virtual void TakeDamage(int damage)
+    public  void TakeDamage(int damage)
     {
         Hp -= damage;
         Debug.Log($"{Name} took {damage} damage. Remaining HP: {Hp}");
