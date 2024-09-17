@@ -1,32 +1,60 @@
 using UnityEngine;
 public class SuperHero
 {
-    public string Name;
-    public int Hp;
-    public string SuitColor;
-    protected float armorStrength;
-
-    public SuperHero(string name, int hp, string suitColor, float armorStrength)
+    protected string name;
+    public string Name
     {
-        Name = name;
-        Hp = hp;
-        SuitColor = suitColor;
-        this.armorStrength = armorStrength;
+        get { return name; }
+        set
+        {
+            if (value == null || value == "")
+            {
+                value = "N/A";
+                name = value;
+            }
+        }
+    }
+        
+    protected int hp;
+    public int HP
+    {
+        get { return hp; }
+        set { hp = value; }
+    }
+
+    protected string suitColor;
+    public string SuitColor
+    { get;set;}
+    protected float armorStrength;
+    public string GetSuitColor()
+    { 
+        return suitColor; 
+    }
+    public void SetName(string newName)
+    {
+        name = newName; 
+    }
+    public SuperHero(string newName, int newHp, string newSuitColor, float newArmorStrength)
+    {
+        name = newName;
+        hp = newHp;
+        suitColor = newSuitColor;
+        armorStrength = newArmorStrength;
     }
 
     public  void TakeDamage(int damage)
     {
-        Hp -= damage;
-        Debug.Log($"{Name} took {damage} damage. Remaining HP: {Hp}");
+        hp -= damage;
+        Debug.Log($"{name} took {damage} damage. Remaining HP: {hp}");
         if (IsDead())
         {
-            Debug.Log($"{Name} has fallen.");
+            Debug.Log($"{name} has fallen.");
         }
     }
 
     public bool IsDead()
     {
-        return Hp <= 0;
+        return hp <= 0;
     }
 
     public void UpdateStrength(float newStrength)

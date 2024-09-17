@@ -6,14 +6,13 @@ public class MainClass : MonoBehaviour
 {
     IronMan ironMan = new IronMan("IronMan", 100, "Red", 50);
     CaptainAmerica captainAmerica = new CaptainAmerica("Captain America", 100, "Blue", 40);
-    System.Random random = new System.Random();
+   
 
     public void Start()
     {
         // สร้างตัวละคร
-        IronMan ironMan = new IronMan("IronMan", 100, "Red", 50);
-        CaptainAmerica captainAmerica = new CaptainAmerica("Captain America", 100, "Blue", 40);
-        System.Random random = new System.Random();
+        Debug.Log($"Ironman name {ironMan.Name}, Hp:{ironMan.HP},color:{ironMan.SuitColor}");
+        Debug.Log($"CaptainAmerica {captainAmerica.Name}, Hp:{captainAmerica.HP},color:{captainAmerica.SuitColor}");   
     }
     private void Update()
     {
@@ -21,8 +20,9 @@ public class MainClass : MonoBehaviour
         {
             return;
         }
-        
-    
+      
+        System.Random random = new System.Random();
+      
         // IronMan โจมตีด้วย ShootLaser
         ironMan.ShootLaser();
         int damageToCaptain = random.Next(10, 21); // Damage แบบสุ่มระหว่าง 10-20
