@@ -1,16 +1,16 @@
 using UnityEngine;
-public class SuperHero
+public class SuperHero:MonoBehaviour
 {
-    protected string name;
+    protected string _name;
     public string Name
     {
-        get { return name; }
+        get { return _name; }
         set
         {
             if (value == null || value == "")
             {
                 value = "N/A";
-                name = value;
+                _name = value;
             }
         }
     }
@@ -32,23 +32,17 @@ public class SuperHero
     }
     public void SetName(string newName)
     {
-        name = newName; 
+        _name = newName; 
     }
-    public SuperHero(string newName, int newHp, string newSuitColor, float newArmorStrength)
-    {
-        name = newName;
-        hp = newHp;
-        suitColor = newSuitColor;
-        armorStrength = newArmorStrength;
-    }
+    
 
     public  void TakeDamage(int damage)
     {
         hp -= damage;
-        Debug.Log($"{name} took {damage} damage. Remaining HP: {hp}");
+        Debug.Log($"{_name} took {damage} damage. Remaining HP: {hp}");
         if (IsDead())
         {
-            Debug.Log($"{name} has fallen.");
+            Debug.Log($"{_name} has fallen.");
         }
     }
 
